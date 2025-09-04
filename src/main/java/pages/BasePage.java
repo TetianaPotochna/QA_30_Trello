@@ -11,15 +11,14 @@ import java.time.Duration;
 
 public class BasePage {
     static WebDriver driver;
-
     public static void setDriver(WebDriver wd){
         driver = wd;
     }
-
     public void clickWait(WebElement element, int time){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).
+        new WebDriverWait(driver, Duration.ofSeconds(10)).
                 until(ExpectedConditions.elementToBeClickable(element)).click();
     }
+
     public void pause(int time){
         try {
             Thread.sleep(time*1000L);
@@ -35,6 +34,10 @@ public class BasePage {
             System.out.println("Create Exception "+exception.getMessage());
             return false;
         }
+    }
+    public boolean validateUrl(String fraction){
+        return new WebDriverWait(driver,Duration.ofSeconds(10))
+                .until(ExpectedConditions.urlContains(fraction));
     }
 
 }
