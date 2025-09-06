@@ -22,9 +22,14 @@ public class BoardsPage extends BasePage {
     WebElement btnCreateNewBoardSubmit;
 
     public void createNewBoard(Board board) {
+        pause(5);
         btnCreateNewBoard.click();
         inputBoardTitle.sendKeys(board.getBoardTitle());
-        clickWait(btnCreateNewBoardSubmit, 3);
+        pause(5);
+        btnCreateNewBoardSubmit.click();
     }
 
+//    public void clickBtnCreateNewBoardSubmit(){
+//        clickWait(btnCreateNewBoardSubmit,3);
+//    }
 }

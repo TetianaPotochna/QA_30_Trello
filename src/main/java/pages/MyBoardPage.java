@@ -19,8 +19,8 @@ public class MyBoardPage  extends BasePage{
     WebElement btnDots;
     @FindBy(xpath = "//ul/li[last()]/button")
     WebElement btnCloseBoard;
-    @FindBy(xpath = "//button[data-testid='popover-close-board-confirm']")
-    WebElement btnCloseBoardConfirm;
+    @FindBy(xpath = "//button[@data-testid='popover-close-board-confirm']")
+    WebElement  btnCloseBoardConfirm;
     @FindBy(xpath = "//button[@data-testid='close-board-delete-board-button']")
     WebElement btnDeleteBoard;
     @FindBy(xpath = "//button[@data-testid='close-board-delete-board-confirm-button']")
@@ -32,12 +32,17 @@ public class MyBoardPage  extends BasePage{
     }
 
     public void deleteBoard(){
-        clickWait(btnDots,5);
-        clickWait(btnCloseBoard,5);
-        clickWait(btnCloseBoardConfirm,5);
         pause(5);
         btnDots.click();
-        clickWait(btnDeleteBoard,5);
-        clickWait(btnDeleteBoardConfirm,5);
+        pause(5);
+        btnCloseBoard.click();
+        pause(5);
+        btnCloseBoardConfirm.click();
+        pause(5);
+        btnDots.click();
+        pause(5);
+        btnDeleteBoard.click();
+        pause(5);
+        btnDeleteBoardConfirm.click();
     }
 }
