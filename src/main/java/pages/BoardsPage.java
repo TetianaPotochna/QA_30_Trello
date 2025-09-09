@@ -20,6 +20,17 @@ public class BoardsPage extends BasePage {
     WebElement inputBoardTitle;
     @FindBy(xpath = "//button[@data-testid='create-board-submit-button']")
     WebElement btnCreateNewBoardSubmit;
+    @FindBy(xpath = "//*[@aria-label='Tatianap (tatianapqatest)']")
+    WebElement buttonAccount;
+    @FindBy(xpath = "//a[@data-testid='manage-account-link']")
+    WebElement btnManageAccount;
+
+    public void openMyAccount(){
+
+        clickWait(buttonAccount, 5);
+
+        clickWait(btnManageAccount, 5);
+    }
 
     public void createNewBoard(Board board) {
         pause(5);
