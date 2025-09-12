@@ -5,6 +5,7 @@ import manager.AppManager;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.AtlassianProfilePage;
 import pages.BoardsPage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -30,6 +31,8 @@ public class ChangeProfileTests extends AppManager {
         List<String> tabs = new ArrayList<>(getDriver().getWindowHandles());
         System.out.println(tabs);
         getDriver().switchTo().window(tabs.get(1));
-
+        AtlassianProfilePage atlassianProfilePage = new AtlassianProfilePage(getDriver());
+        atlassianProfilePage.changeMyProfilePhoto("src/test/resources/4.jpg");
+        Assert.assertTrue(atlassianProfilePage.validateMessage("We've uploaded your new avatar. It may take a few minutes to display everywhere."));
     }
 }
